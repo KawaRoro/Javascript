@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Exercice 3</title>
+</head>
+<body>
+    <script>
+      /*
+      <div id="divTP4">
+        <form enctype="multipart/form-data" method="post" action="upload.php">
+          <fieldset>
+            <legend>Uploader une image</legend>
+            <div style="text-align: center">
+              <label for="inputUpload">Image à uploader :</label>
+              <input type="file" name="inputUpload" id="inputUpload" /> <br /><br />
+              <input type="submit" value="Envoyer" />
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      */
+      // On crée l'élément conteneur
+      var mainDiv = document.createElement('div');
+        mainDiv.id = 'divTP4';
+        
+        // noeuds de texte
+        var textNodes = [
+          document.createTextNode('Uploader une image'),
+          document.createTextNode('Image a uploader')
+        ];
+
+        var form = document.createElement('form');
+        form.enctype = 'multipart/form-data';
+        form.method = 'post';
+        form.action = 'upload.php';
+
+        var fieldset = document.createElement('fieldset');
+
+        var legend = document.createElement('legend');
+        legend.appendChild(textNodes[0]);
+
+        var div = document.createElement('div');
+        div.setAttribute('style', 'text-align: center');
+        
+        var label = document.createElement('label');
+        label.htmlFor = 'inputUpload';
+        label.appendChild(textNodes[1]);
+        
+        var input1 = document.createElement('input');
+        input1.type = 'file';
+        input1.name = 'inputUpload';
+        input1.id = 'inputUpload';
+        
+        var input2 = document.createElement('input');
+        input2.type = 'submit';
+        input2.value = 'Envoyer';
+        
+        var br = document.createElement('br');
+        
+        // Encapsulation des éléments
+        div.appendChild(label);
+        div.appendChild(input1);
+        div.appendChild(br);
+        div.appendChild(br.cloneNode(false));
+        div.appendChild(input2);
+        
+        fieldset.appendChild(legend);
+        fieldset.appendChild(div);
+        
+        form.appendChild(fieldset);
+        
+        mainDiv.appendChild(form);
+        
+        // On insère mainDiv dans le <body>
+      document.body.appendChild(mainDiv);
+    </script>
+  </body>
+</html>
